@@ -2,7 +2,6 @@ import {
   ONE_HOUR_MILLISECONDS,
   ONE_MINUTE_MILLISECONDS,
   ONE_SECOND_MILLISECONDS,
-  MILLIS,
 } from "../constants/time_constants";
 import {
   convertHrsMinSecToMillis,
