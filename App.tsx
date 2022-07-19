@@ -1,22 +1,23 @@
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
-import Timer from "./components/Timer/Timer";
+import { Button, StyleSheet, Text, View, Vibration } from "react-native";
+import { Timer } from "./components/Timer/Timer";
 
 export default function App() {
   const [startTime, setStartTime] = useState(0);
 
-  const startTimer = () => {
-    setStartTime(Date.now());
-  };
-
   return (
     <View style={styles.container}>
       <Text>Open up App.tsx to start working on your app!</Text>
-      <Timer handleTimeEnd={() => alert("timer ended")} />
-      <Button title="StartButton" onPress={startTimer}>
-        Start
-      </Button>
+      <Timer
+        hours={0}
+        minutes={0}
+        seconds={5}
+        handleTimeEnd={() => {
+          Vibration.vibrate([2000, 2000, 2000, 2000], true);
+        }}
+      />
+      <Button title="stopvibration" onPress={() => Vibration.cancel()} />
       <StatusBar style="auto" />
     </View>
   );
